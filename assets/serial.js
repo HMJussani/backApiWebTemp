@@ -4,7 +4,7 @@ const salvar = require('./salvar');
 const tempo = 1000; //1min
 let cont =0;
 
- function serial (path) {
+function serial (path) {
   const port = new SerialPort(path, {
     baudRate: 115200
   })
@@ -41,6 +41,3 @@ let cont =0;
 }
 
 module.exports = serial;
-//serial((process.argv[2]));
-
-

@@ -24,14 +24,14 @@ return data;
 }
 
 function hora(){
- let hora = time.getHours();
- let min = time.getMinutes();
- let seg = time.getSeconds();
- if(hora<9) hora = '0'+hora;
- if(min<9) min = '0'+min;
- if(seg<9) seg = '0'+seg;
- const horario = hora+':'+min+':'+seg+'#';
- return horario;
+  let hora = time.getHours();
+  let min = time.getMinutes();
+  let seg = time.getSeconds();
+  if(hora<9) hora = '0'+hora;
+  if(min<9) min = '0'+min;
+  if(seg<9) seg = '0'+seg;
+  const horario = hora+':'+min+':'+seg+'#';
+  return horario;
 }
 
 
@@ -40,33 +40,32 @@ function hora(){
     console.log(`=> ${line}`);    
     });  
 
-   function acertaHr(funcao){
+  function acertaHr(funcao){
 
     if(funcao==null){
       console.log('Digite [getVal] para leitura do sensor.');
       console.log('Digite [getdata] para informacoes do sensor.');
       console.log('Digite [acertahora] para sincronizar data e hora com este host.');
       console.log('CRTL+c para sair.');
-     }
+    }
 
     if(funcao==='getVal'){
       port.write('getVal#\n');
-     }
+    }
 
-     if(funcao==='getdata'){
+    if(funcao==='getdata'){
       port.write('000?#\n');
-     }
-     if(funcao==='acertahora'){
+    }
+    if(funcao==='acertahora'){
       port.write(hora()); 
       console.log('Ajustada hora com a hora deste host '+ hora()); 
       port.write(data()); 
       console.log('Ajustada data com a data deste host '+ data());
       port.write('getVal#\n');
       console.log('CRTL+c para sair.');
-     }
-   }
-
-
+    }
+  }
+  
 acertaHr((process.argv[2]));
 
 
