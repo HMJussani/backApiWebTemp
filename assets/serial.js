@@ -1,13 +1,8 @@
 const SerialPort = require('serialport');
 const Readline = require('@serialport/parser-readline');
 const salvar = require('./salvar');
-const tempo = 60000; //1min
+const tempo = 1000; //1min
 let cont =0;
-
-const time = new Date();
-const mes = time.getMonth()+1;
-const hoje = time.getDate()+'/'+mes+'/'+time.getFullYear()+'#';
-const hora = time.getHours()+':'+time.getMinutes()+':'+time.getSeconds()+'#';
 
  function serial (path) {
   const port = new SerialPort(path, {
@@ -20,25 +15,23 @@ const hora = time.getHours()+':'+time.getMinutes()+':'+time.getSeconds()+'#';
   setTimeout(inicio, 1000);
 
   parser.on('data', line => {
-    if(cont===0|cont ===6){
+    if(cont===0|cont ===30){
     let recorte = line.split(';');
     recorte[2] =recorte[2].replace('/','-');
     recorte[2] =recorte[2].replace('/','-');
     const salvo = salvar(recorte[0],recorte[2],recorte[1],recorte[3]);
-    console.log(`> ${recorte[3]}`);
+    console.log(`> ${recorte[1]} => ${recorte[3]}`);
     cont=1;
   }
   cont++;
   });
-  function getdata () {
+  function getdata () {     
     port.write('getVal#\n');
   }
 
   function inicio(){
-    if(cont===0){ 
-      port.write(hoje);
-      port.write(hora); 
-      console.log('Ajustado o relógio com o relógio deste host') 
+    if(cont===0){      
+      console.log('Buscando dados'); 
       port.write('getVal#\n');   
     }
   }
