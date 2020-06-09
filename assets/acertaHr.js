@@ -50,9 +50,15 @@ function acertaHr(funcao) {
     port.write(data());
     console.log('Ajustada data com a data deste host ' + data());
     port.write('getVal#\n');
-    process.exit(1);
+    setTimeout(fechar(), 3000);
   }
 }
+
+function fechar() {
+  process.exit(1);
+}
+
+
 
 acertaHr((process.argv[2]));
 
