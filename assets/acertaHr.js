@@ -49,10 +49,11 @@ function acertaHr(funcao) {
     console.log('Ajustada hora com a hora deste host ' + hora());
     port.write(data());
     console.log('Ajustada data com a data deste host ' + data());
-    port.write('getVal#\n');
-    setTimeout(fechar(), 3000);
+    port.write('getVal#\n');   
   }
 }
+
+setTimeout(fechar(), 3000);
 
 function fechar() {
   process.exit(1);
