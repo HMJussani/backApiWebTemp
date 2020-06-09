@@ -53,14 +53,6 @@ function acertaHr(funcao) {
   }
 }
 
-setTimeout(fechar(), 3000);
-
-function fechar() {
-  process.exit(1);
-}
-
-
-
 acertaHr((process.argv[2]));
 
 
