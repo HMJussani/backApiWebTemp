@@ -43,14 +43,14 @@ function hora(){
   function acertaHr(funcao){
 
     if(funcao==null){
+      console.log('Informacoes do sensor:');
+      port.write('000?#\n');
       port.write(hora()); 
       console.log('Ajustada hora com a hora deste host '+ hora()); 
       port.write(data()); 
       console.log('Ajustada data com a data deste host '+ data());      
       console.log('Teste de leitura do sensor:');
-      port.write('getVal#\n');
-      console.log('Informacoes do sensor:');
-      port.write('000?#\n');
+      port.write('getVal#\n');     
       console.log('CRTL+c para sair.');
     }
   }
