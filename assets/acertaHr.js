@@ -43,9 +43,13 @@ function hora(){
   function acertaHr(funcao){
 
     if(funcao==null){
+      port.write(hora()); 
+      console.log('Ajustada hora com a hora deste host '+ hora()); 
+      port.write(data()); 
+      console.log('Ajustada data com a data deste host '+ data());
+      port.write('getVal#\n');
       console.log('Digite [getVal] para leitura do sensor.');
       console.log('Digite [getdata] para informacoes do sensor.');
-      console.log('Digite [acertahora] para sincronizar data e hora com este host.');
       console.log('CRTL+c para sair.');
     }
 
@@ -55,15 +59,7 @@ function hora(){
 
     if(funcao==='getdata'){
       port.write('000?#\n');
-    }
-    if(funcao==='acertahora'){
-      port.write(hora()); 
-      console.log('Ajustada hora com a hora deste host '+ hora()); 
-      port.write(data()); 
-      console.log('Ajustada data com a data deste host '+ data());
-      port.write('getVal#\n');
-      console.log('CRTL+c para sair.');
-    }
+    }    
   }
   
 acertaHr((process.argv[2]));
