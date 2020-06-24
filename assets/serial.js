@@ -1,7 +1,7 @@
 const SerialPort = require('serialport');
 const Readline = require('@serialport/parser-readline');
 const salvar = require('./salvar');
-const tempo = 1000; //1min
+const tempo = 1000; 
 let cont =0;
 
 function serial (path) {
@@ -15,7 +15,7 @@ function serial (path) {
   setTimeout(inicio, 1000);
 
   parser.on('data', line => {
-    if(cont===0|cont ===30){
+    if(cont===0|cont ===90){
     let recorte = line.split(';');
     recorte[2] =recorte[2].replace('/','-');
     recorte[2] =recorte[2].replace('/','-');
