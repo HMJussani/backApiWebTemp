@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node assets/index.js"
   },
   "author": "HMJussani",
   "license": "MIT",
   "dependencies": {
-    "firebase": "^7.14.3",
-    "firebase-admin": "^8.12.1",
-    "serialport": "^9.0.0"
+    "firebase": "^7.24.0",
+    "firebase-admin": "^8.13.0",
+    "serialport": "^9.2.8"
   },
   "devDependencies": {},
   "description": ""

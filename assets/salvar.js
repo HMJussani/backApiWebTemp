@@ -1,10 +1,11 @@
 const {db} = require('./firebase');
 
-async function salvar(id,data, hora, temp) {   
+async function salvar(id, data, hora, temp, ano, mes) {   
    try {
         await db.collection('Temperatura')
-                .doc(id).collection(data)
-                .doc(hora)                
+                .doc(id).collection(ano)                
+                .doc(mes).collection(data)
+                .doc(hora)               
                 .set({
                     id: id,
                     data: data,

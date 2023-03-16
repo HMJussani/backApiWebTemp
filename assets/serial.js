@@ -17,10 +17,12 @@ function serial (path) {
   parser.on('data', line => {
     if(cont===0|cont ===30){
     let recorte = line.split(';');
-    recorte[2] =recorte[2].replace('/','-');
-    recorte[2] =recorte[2].replace('/','-');
-    const salvo = salvar(recorte[0],recorte[2],recorte[1],recorte[3]);
+    //recorte[2] =recorte[2].replace('/','-');
+    //recorte[2] =recorte[2].replace('/','-');
+    let ano = recorte[2].split('.');   
+    salvar(recorte[0],recorte[2],recorte[1],recorte[3],ano[2],ano[1]);
     console.log(`> ${recorte[1]} => ${recorte[3]}`);
+    
     cont=1;
   }
   cont++;

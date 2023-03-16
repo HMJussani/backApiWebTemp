@@ -49,6 +49,10 @@ function hora(){
       console.log('CRTL+c para sair.');
     }
 
+    if(funcao==='reset'){
+      port.write('reset#\n');
+    }
+
     if(funcao==='getVal'){
       port.write('getVal#\n');
     }
