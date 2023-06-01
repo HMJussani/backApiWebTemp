@@ -5,7 +5,7 @@ const SerialPort = require('serialport');
 const Readline = require('@serialport/parser-readline');
 const os = require('os');
 
-let path = 'COM3';
+let path = 'COM6';
 let osSys = os.platform();
 if (osSys === 'linux') path = '/dev/ttyUSB0';
 const port = new SerialPort(path, {
@@ -54,22 +54,22 @@ function acertaHr(funcao) {
     }
 
     if(funcao==='reset'){
-      port.write('reset#\n');
+      port.write('rst#');
     }
 
     if(funcao==='getVal'){
-      port.write('getVal#\n');
+      port.write('getDados#');
     }
 
     if(funcao==='getdata'){
-      port.write('000?#\n');
+      port.write('000?#');
     }
     if(funcao==='hora'){
       port.write(hora()); 
       console.log('Ajustada hora com a hora deste host '+ hora()); 
       port.write(data()); 
       console.log('Ajustada data com a data deste host '+ data());
-      port.write('getVal#\n');
+      port.write('getVal#');
       console.log('CRTL+c para sair.');
     }
   }

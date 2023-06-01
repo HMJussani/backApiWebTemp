@@ -19,22 +19,22 @@ function serial (path) {
     let recorte = line.split(';');
     //recorte[2] =recorte[2].replace('/','-');
     //recorte[2] =recorte[2].replace('/','-');
-    let ano = recorte[2].split('.');   
-    salvar(recorte[0],recorte[2],recorte[1],recorte[3],ano[2],ano[1]);
-    console.log(`> ${recorte[1]} => ${recorte[3]}`);
-    
+    let ano = recorte[3].split('.');   
+    salvar(recorte[0],recorte[1],recorte[2],recorte[3],ano[2],ano[1]); 
+    //console.log(`> ${recorte}`);  
+    console.log(`> ${recorte[0]} : ${recorte[2]} `);  
     cont=1;
   }
   cont++;
   });
   function getdata () {     
-    port.write('getVal#\n');
+    port.write('getDados#');
   }
 
   function inicio(){
     if(cont===0){      
       console.log('Buscando dados'); 
-      port.write('getVal#\n');   
+      port.write('getDados#');   
     }
   }
 
